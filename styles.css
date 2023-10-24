@@ -1,0 +1,529 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+    /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
+    font-family: 'Open Sans', sans-serif;
+    color: #FFFFFF;
+    background-image: url('./images/bg-project.jpg');
+    background-size: cover;
+    background-position: center;
+    display: grid;
+    grid-template-rows: 10% auto 7%;
+    grid-template-areas: 
+        'header'
+        'main'
+        'footer';
+}
+
+header {
+    grid-area: header;
+    /* background-color: #FFFFFF; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    /* padding-right: 4rem; */
+}
+
+/* test met div om de content */
+main {
+    grid-area: main;
+}
+
+/* .main-container-profiles,
+.main-container-home,
+.main-container-login {
+    display: flex;
+    align-items: center;
+    margin-top: 5rem;
+}
+
+
+.main-container {
+    justify-content: space-evenly;
+}
+
+
+.main-container-left {
+    padding-left: 2rem;
+} */
+
+footer {
+    grid-area: footer;
+    /* background-color:blanchedalmond; */
+    display: flex;
+    align-items: center;
+    font-style: italic;
+    padding: 0 1rem;
+}
+
+/* -------------------------------------------------- */
+/* NAV */
+.logo-website {
+    font-size: 2rem;
+    font-weight: bold;
+    font-style: italic;
+    cursor: default;
+    text-shadow: 5px 5px 3px black;
+}
+
+.nav-links {
+    display: flex;
+    font-size: 1.5rem;
+    margin-right: 2rem;
+    gap: 6rem;
+    text-shadow: 5px 5px 5px black; 
+}
+
+a {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+li {
+    list-style: none;
+}
+
+.nav-links > li > a:hover {
+    text-decoration: underline;
+    color: #a1748c;
+    text-shadow: none;
+}
+
+.nav-links > li > a:active {
+    text-decoration: underline;
+    color: #323352;
+}
+
+/* Drop menu */
+.drop-menu {
+    display: none;
+    position: absolute;
+    top: 4rem;
+    right: 2rem;
+    width: 300px;
+    background: rgb(161, 116, 140, 0.7);
+    border-radius: 8px;
+    font-weight:bold;
+    text-shadow: 3px 3px 3px #323352;
+    box-shadow:  0px 0px 10px 2px #3e3c57;
+    backdrop-filter: blur(25px);
+}
+
+.links-drop-menu > li {
+    display: flex;
+    justify-content: center;
+    padding: 1.5rem;
+}
+
+.links-drop-menu > li > a:hover {
+    text-decoration: underline;
+    color: #323232;
+    text-shadow: none;
+}
+
+.links-drop-menu > li > a:active {
+    text-decoration: underline;
+    color: grey;
+}
+
+.toggle-btn, .close-btn {
+    font-size: 1.5rem;
+    display: none;
+    cursor: pointer;
+}
+
+/* Show the drop menu when the 'active' class is added */
+.drop-menu.active {
+    display: block;
+}
+
+/* Show the close button when the 'active' class is added */
+.close-btn.active {
+    display: block;
+}
+
+.toggle-btn.active {
+    display: block;
+}
+
+
+/* ------------------------------- */
+/* PORTFOLIO */
+
+.main-container-portfolio {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 5rem;
+}
+
+.container-btn {
+    margin-top: 1rem;
+}
+
+.profile-picture {
+    width: 400px;
+    border-radius: 50%;
+}
+.container-text {
+    text-align: center;
+    color: white;
+}
+
+.container-text > h1 {
+    font-size: 2rem;
+}
+
+.container-text > span,
+.container-text > h3 {
+    color: #323352;
+    text-decoration: underline;
+    text-shadow: none;
+}
+
+.header-text-main {
+    text-shadow: 3px 3px 3px #323352;
+}
+
+.about-btn {
+    background-color: #3e3c57;
+}
+
+.work-btn {
+    background-color: #785c7b;
+}
+
+.about-btn:hover, .work-btn:hover {
+    background-color: grey;
+}
+
+.about-btn:active, .work-btn:active  {
+    background-color: rgb(26, 26, 26);
+}
+
+.work-btn, .about-btn {
+    padding: 0.5rem;
+    border-radius: 50px;  /* 50px */
+    border: #323352 0.15rem solid;
+    /* border: none; */
+    text-shadow: 2px 2px 3px black;
+    font-weight: bold;
+}
+
+
+/* RESPONSIVENESS NAV/DROPMENU & PROFILE PORTFOLIO */
+body {
+    @media (max-width: 990px) {
+        .nav-links {
+            display: none;
+        }
+    
+        .links-drop-menu > li {
+            padding: 1.1rem;
+        }
+    
+        /* .toggle-btn {
+            display: block;
+        } */
+        
+    }
+
+    @media (max-width: 790px) {
+
+        .main-container-portfolio {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 1rem;
+        }
+        
+        .container-profile-picture {
+            text-align-last: center;
+        }
+    
+        .drop-menu {
+            top: 7rem;
+            left: 2rem;
+            width: unset;
+            /* backdrop-filter: blur(25px); */
+        }
+    
+        .profile-picture {
+            width: 290px;
+        }
+
+    } 
+}
+/* ----------------------------------------------------------- */
+
+/* LOGIN CSS */
+
+.main-container-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5rem;
+}
+
+
+.login-form {
+    background-color: #FFFFFF;
+    /* margin-top: -10rem; */
+    height: 500px;
+    width: 600px;
+    /* margin-left: 4rem; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 2rem;
+    /* gap: rem; */
+    box-shadow:  0px 0px 10px 2px #3e3c57;
+    border-radius: 5px;
+    /* backdrop-filter: blur(5px); */
+    color: #3e3c57;
+    text-align: center;
+}
+
+/* .header-text-login {
+    text-align: center;
+} */
+
+.container-user-password {
+    /* background-color: #785c7b;
+    padding: 0.05rem; */
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    /* margin-bottom: 2rem; */
+}
+
+.container-remember-forgot {
+    /* background-color: aqua; */
+    display: flex;
+    justify-content: space-between;
+    /* gap: 20rem; */
+}
+
+.container-remember-forgot > a {
+    color: #a1748c;
+}
+
+
+/* Add this CSS to move icons inside the input elements */
+.user-with-icon,
+.password-with-icon {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+/* User and password icon */
+.fa-user,
+.fa-lock {
+    position: absolute;
+    left: 1rem; 
+    top: 1rem;
+    /* transform: translateY(-50%); */
+    color: #323352;
+}
+
+/* Show and hide icon */
+.fa-eye-slash,
+.fa-eye {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    color: #323352;
+}
+
+.email-style,
+.password-style {
+    width: 100%; /* Make the input 85% width */
+    padding-left: 2rem; /* Add left padding to create space for the icon */
+    padding: 1rem 4.5rem;
+    border: 1px solid #323252;
+    border-radius: 5px;
+    transition: border-color 0.3s;
+    font-weight: bold;
+    /* box-sizing: border-box; */
+}
+
+/* Hide the placeholder text when the input is focused */
+.email-style:focus::placeholder,
+.password-style:focus::placeholder {
+    color: transparent;
+}
+
+
+
+/* Add this CSS to change the border color when the input is focused */
+.email-style:valid,
+.password-style:valid,
+.email-style:invalid,
+.password-style:invalid  {
+    padding-left: 2.5rem; 
+}
+
+/* .email-style:invalid,
+.password-style:invalid { 
+    border-color: red;
+} */
+
+/* input[type="email"]:invalid,
+input[type="password"]:invalid { 
+    border-color: red;
+} */
+
+.submit-style {
+    background-color: #323352;
+    color: #FFFFFF;
+    font-size: 1rem;
+    padding: 1rem;
+    width: 100%;
+
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0px 0px 1px 2px #323352;
+    /* box-shadow:  0px 0px 10px 2px #3e3c57; */
+}
+
+.submit-style:active {
+    background-color: #a1748c; /* Change to the color you want when clicked */
+    /* You can also adjust other styles like text color, box-shadow, etc. */
+}
+
+.not-a-member > a {
+    color: #a1748c;
+    text-align: center;
+}
+
+/* @media (max-width: 768px) {
+    form {
+      margin-left: 2rem; 
+      margin-right: 2rem; 
+    }
+} */
+
+/* ----------------------------------------------------- */
+
+/* REGISTRATION */
+.registration-form {
+    background-color: #FFFFFF;
+    height: 500px;
+    width: 600px;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center; */
+    /* gap: rem; */
+    padding: 3rem;
+    box-shadow:  0px 0px 10px 2px #3e3c57;
+    border-radius: 5px;
+    color: #3e3c57;
+}
+
+.tab1, .tab2 {
+    /* background-color: aquamarine; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4rem;
+    /* padding: 2rem; */
+}
+
+.tab2 {
+    display: none;
+}
+
+.registration-text {
+    /* background-color: aqua; */
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    /* border-radius: 5px;
+    transition: border-color 0.3s;
+    font-weight: bold; */
+    /* box-sizing: border-box; */
+  }
+
+.registration-text-style {
+  /* width: 10%;  */
+  padding: 1rem 1rem;
+  border: 1px solid #323252;
+  border-radius: 5px;
+  transition: border-color 0.3s;
+  font-weight: bold; 
+  /* box-sizing: border-box;*/
+}
+
+.prev-next-btn {
+    display: flex;
+    gap: 1rem;
+}
+
+.prev-btn,
+.next-btn,
+.submit-btn {
+    color: #FFFFFF;
+    font-size: 1rem;
+    padding: 1rem;
+    width: 8rem;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0px 0px 1px 2px #323352;
+    /* box-shadow:  0px 0px 10px 2px #3e3c57; */
+}
+
+.next-btn,
+.submit-btn {
+    background-color: #323352;
+}
+
+.prev-btn {
+    background-color: #a1748c;
+}
+
+/* . RESPONSIVENESS LOGIN/REGISTRATION */
+body {
+    @media (max-width:750px) { 
+
+        .login-form,
+        .registration-form {
+            width: 70%;
+        }
+    
+    }
+}
+
+
+/* ------------------- END DANIEL STYLING ----------------------------------- */
+
+/* ---------------------- HOME ----------------------*/
+.main-container-home {
+    margin-top: 5rem;
+    display: flex;
+    justify-content: center;
+}
+
+.home-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+}
+
+
+/* ---------------------- PROFILES ---------------------- */
+.main-container-profiles {
+    display: flex;
+    align-items: center;
+    margin-top: 5rem;
+    padding-left: 2rem;
+}

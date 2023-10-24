@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link 
+    rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" 
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" 
+    crossorigin="anonymous" 
+    referrerpolicy="no-referrer" 
+    />
+    <link rel="stylesheet" href="styles.css">
+    <title>Login</title>
+    <script src="functions/password-check.js"></script>
+</head>
+<body class="body-login">
+    <header class="header-login">
+        <div class="logo-website">Underdogs</div>
+    </header>
+    <main class="main-login">
+        <form method="post" action="" class="login-form">
+            <h1 class="header-text-login">Login Now</h1>
+            <div class="container-user-password">
+                <div class="user-with-icon">
+                    <label for="user-email"><i class="fa-solid fa-user icon" style="color: #323352;"></i></label>
+                    <input type="email" id="user-email" name="email" placeholder="Email" class="email-style">
+                </div>
+                <div class="password-with-icon">
+                    <label for="password"><i class="fa-solid fa-lock" style="color: #323252;"></i></label>
+                    <input type="password" id="password" name="password" placeholder="Password" class="password-style">
+                    <i class="fa-solid fa-eye-slash"></i>
+                    <!-- <i class="fa-solid fa-eye"></i> -->
+                </div>  
+            </div>
+            <div class="container-remember-forgot">
+                <div class="container-remember">
+                    <input type="checkbox" id="remember">
+                    <label for="remember">Remember me</label>
+                </div>
+                <a href="reset-password.html" class="forgot-password">Forgot password</a>
+            </div>
+            <input type="submit" name="login" value="Login" class="submit-style">
+            <p class="not-a-member">Not a member? <a href="registration.html">Sign up</a></p>
+        </form>
+    </main>
+    <footer class="footer-login">
+        <p>&copy; Daniel Pustjens (Underdogs) 2023</p>    
+    </footer>
+</body>
+</html>
+

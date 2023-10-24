@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link 
+    rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" 
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" 
+    crossorigin="anonymous" 
+    referrerpolicy="no-referrer" 
+    />
+    <link rel="stylesheet" href="styles.css">
+    <title>Registration</title>
+    <script src="prev-next.js"></script>
+</head>
+<body class="body-login">
+    <header class="header-login">
+        <div class="logo-website">Underdogs</div>
+    </header>
+
+    <!-- <input type="submit" name="create-account" value="Next" class="submit-style" id="create-account"> -->
+
+    <main class="main-login">
+
+        <form action="add-user.php" class="registration-form">
+
+            <div class="tab1">
+                <h1 class="header-text-login">Create an Account (1/2)</h1>
+                <div class="registration-text">
+                    <input type="text" id="first-name" name="firstname" placeholder="First Name" class="registration-text-style">
+                    <input type="text" id="last-name" name="lastname" placeholder="Last Name" class="registration-text-style">
+                    <input type="date" id="dob" name="dob" placeholder="Date of Birth" class="registration-text-style">
+                    <input type="email" id="biography" name="biography" placeholder="Biography (Optional)" class="registration-text-style">
+                </div>
+                <button class="next-btn"  name="next-btn">Next</button>
+            </div>
+
+            <div class="tab2">
+                <h1 class="header-text-login">Create an Account (1/2)</h1>
+                <div class="registration-text">
+                    <input type="text" id="username" name="username" placeholder="Username" class="registration-text-style" required>
+                    <input type="email" id="user-mail" name="email" placeholder="Email" class="registration-text-style">
+                    <input type="password" id="password" name="password" placeholder="Password" class="registration-text-style">
+                    <input type="password" id="confirm-password" placeholder="Repeat Password" class="registration-text-style">
+                </div>
+                <div class="prev-next-btn">
+                    <button class="prev-btn" name="prev-btn">Prev</button>
+                    <button class="submit-btn" type="submit" name="submit-btn">Submit</button>
+                </div>
+            </div>
+
+
+
+
+            <!-- <h1 class="header-text-login">Create an Account (1/2)</h1>
+            <div class="registration-text">
+                <input type="text" id="username" placeholder="Username" class="registration-text-style" required>
+                <input type="email" id="user-mail" placeholder="Email" class="registration-text-style">
+                <input type="password" id="password" placeholder="Password" class="registration-text-style">
+                <input type="password" id="confirm-password" placeholder="Repeat Password" class="registration-text-style">
+            </div>
+            <button class="submit-btn" type="submit" name="submit-btn">Submit</button> -->
+            
+            <!-- <button class="next-btn" type="submit" name="next-btn">Next</button>  -->
+            
+
+          <!-- <h1 class="header-text-login">Create an Account (2/2)</h1>
+            <div class="registration-text">
+                <input type="text" id="first-name" placeholder="First Name" class="registration-text-style">
+                <input type="text" id="last-name" placeholder="Last Name" class="registration-text-style">
+                <input type="date" name="dob" id="dob" placeholder="Date of Birth" class="registration-text-style">
+                <input type="email" id="biography" placeholder="Biography" class="registration-text-style">
+            </div>
+            <div class="prev-next-btn">
+                <button class="prev-btn" type="submit" name="prev-btn">Prev</button>
+                <button class="submit-btn" type="submit" name="submit-btn">Submit</button>
+            </div> -->
+
+            
+        </form> 
+
+    </main>
+
+    <footer class="footer-login">
+        <p>&copy; Daniel Pustjens (Underdogs) 2023</p>    
+    </footer>
+</body>
+</html>
