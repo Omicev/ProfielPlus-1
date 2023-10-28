@@ -1,7 +1,9 @@
 <?php
 
-$App = require 'private.php';
-$dbconn = $App['database'];
+// $App = require 'private.php';
+// $dbconn = $App['database'];
+
+// require 'database.php';
 
 $routes = [
     "/" => "controllers/index.php",
@@ -32,19 +34,19 @@ if(array_key_exists($_SERVER['REQUEST_URI'], $routes)) {
  */
 
 
-try {
-    $conn = new PDO(
-        "mysql:host=$dbconn[servername];dbname=$dbconn[dbname]",
-        $dbconn['username'],
-        $dbconn['drowssap']
-    );
-    // echo "sbdbaadsjkas";
+// try {
+//     $conn = new PDO(
+//         "mysql:host=$dbconn[servername];dbname=$dbconn[dbname]",
+//         $dbconn['username'],
+//         $dbconn['drowssap']
+//     );
+//     // echo "sbdbaadsjkas";
 
-    // set the PDO error mode to exception
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch(PDOException $e) {
-    echo "Connection failed: " . $e->getMessage();
-}
+//     // set the PDO error mode to exception
+//     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+// } catch(PDOException $e) {
+//     echo "Connection failed: " . $e->getMessage();
+// }
 
 // left erbij
 // $sql = "
@@ -54,10 +56,10 @@ try {
 //     left join hobbies on hobbies.userid = users.id
 //     ";
 
-$sql = "SELECT * FROM users";
-$stmt = $conn->prepare($sql);
-$stmt->execute();
-$users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+// $sql = "SELECT * FROM users";
+// $stmt = $conn->prepare($sql);
+// $stmt->execute();
+// $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 
 

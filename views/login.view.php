@@ -3,12 +3,12 @@
 
     <main>
         <div class="main-container-login">
-            <form method="post" action="" class="login-form">
+            <form method="post" action="login.php" class="login-form">
                 <h1 class="header-text-login">Login Now</h1>
                 <div class="container-user-password">
                     <div class="user-with-icon">
-                        <label for="user-email"><i class="fa-solid fa-user icon" style="color: #323352;"></i></label>
-                        <input type="email" id="user-email" name="email" placeholder="Email" class="email-style">
+                        <label for="username"><i class="fa-solid fa-user icon" style="color: #323352;"></i></label>
+                        <input type="text" id="username" name="username" placeholder="Username" class="username-style">
                     </div>
                     <div class="password-with-icon">
                         <label for="password"><i class="fa-solid fa-lock" style="color: #323252;"></i></label>

@@ -6,37 +6,59 @@
 if (isset($_POST['submit-btn'])) {
 
     // SANITIZE PASSWORD?????
-    $passwords = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_SPECIAL_CHARS);
-    $usernames = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_SPECIAL_CHARS);
-    $emails = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
+    $password = $_POST['password'];
+    $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_SPECIAL_CHARS);
+    $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
     
     $firstName = filter_input(INPUT_POST, 'firstname', FILTER_SANITIZE_SPECIAL_CHARS);
     $lastName = filter_input(INPUT_POST, 'lastname', FILTER_SANITIZE_SPECIAL_CHARS);
     $biography = filter_input(INPUT_POST, 'biography', FILTER_SANITIZE_SPECIAL_CHARS);
     $dob = $_POST['dob'];
 
-    if (empty($usernames)) {
+    if (empty($username)) {
         echo "You forgot to fill in your username";
-    } else if (empty($emails)) {
+    } else if (empty($email)) {
         echo "You forgot to fill in your email";
-    } else if (empty($passwords)) {
+    } else if (empty($password)) {
         echo "You forgot to fill in your password";
     } else {
-        $hashPassword = password_hash($passwords, PASSWORD_DEFAULT);
+        $hashPassword = password_hash($password, PASSWORD_DEFAULT);
         
         require 'database.php';
 
-        // $sql = "INSERT INTO users (username, password, email) 
-        //         VALUES ('$username', '$hashPassword', '$email')";
-        // $stmt = $conn->prepare($sql);
-    
-        $sql = "INSERT INTO users (username, password, email) 
-                VALUES (:username, :password, :email)";
-        $stmt = $conn->prepare($sql);
-        $stmt->bindParam(':username', $usernames);
-        $stmt->bindParam(':password', $hashPassword);
-        $stmt->bindParam(':email', $emails);
-        $stmt->execute();
+        $sqlUser = "INSERT INTO users (username, password, email) 
+        VALUES (:username, :password, :email)";
+        $stmtUser = $conn->prepare($sqlUser);
+        $stmtUser->bindParam(':username', $username);
+        $stmtUser->bindParam(':password', $hashPassword);
+        $stmtUser->bindParam(':email', $email);
+        $stmtUser->execute();
+
+        // $sqlUser = "INSERT INTO users (username, password, email) 
+        // VALUES ('$username', '$hashPassword', '$email')";
+        // $stmtUser = $conn->prepare($sqlUser);
+        // $stmtUser->execute();
+
+
+        $lastInsertUserId = $conn->lastInsertId();
+
+        // $sqlProfile = "INSERT INTO profiles 
+        // (user_id, firstname, lastname, biography, dob) 
+        // VALUES ('$lastInsertUserId', '$firstName', '$lastName', '$biography', '$dob')";
+        // $stmtProfile = $conn->prepare($sqlProfile);
+        // $stmtProfile->execute();
+
+        $sqlProfile = "INSERT INTO profiles 
+        (user_id, firstname, lastname, biography, dob) 
+        VALUES (:user_id, :firstname, :lastname, :biography, :dob)";
+        $stmtProfile = $conn->prepare($sqlProfile);
+        $stmtProfile->bindParam(':user_id', $lastInsertUserId);
+        $stmtProfile->bindParam(':firstname', $firstName);
+        $stmtProfile->bindParam(':lastname', $lastName);
+        $stmtProfile->bindParam(':biography', $biography);
+        $stmtProfile->bindParam(':dob', $dob);
+        $stmtProfile->execute();
+
         header('Location: /login');
         exit();
 

@@ -21,7 +21,7 @@ body {
 
 header {
     grid-area: header;
-    /* background-color: #FFFFFF; */
+    /* background-color: red; */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -33,6 +33,7 @@ header {
 /* test met div om de content */
 main {
     grid-area: main;
+    /* background-color: aqua; */
 }
 
 /* .main-container-profiles,
@@ -342,7 +343,7 @@ body {
     color: #323352;
 }
 
-.email-style,
+.username-style,
 .password-style {
     width: 100%; /* Make the input 85% width */
     padding-left: 2rem; /* Add left padding to create space for the icon */
@@ -355,7 +356,7 @@ body {
 }
 
 /* Hide the placeholder text when the input is focused */
-.email-style:focus::placeholder,
+.username-style:focus::placeholder,
 .password-style:focus::placeholder {
     color: transparent;
 }
@@ -363,9 +364,9 @@ body {
 
 
 /* Add this CSS to change the border color when the input is focused */
-.email-style:valid,
+.username-style:valid,
 .password-style:valid,
-.email-style:invalid,
+.username-style:invalid,
 .password-style:invalid  {
     padding-left: 2.5rem; 
 }

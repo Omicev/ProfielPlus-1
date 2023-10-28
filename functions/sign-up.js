@@ -67,6 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const confirmPassword = document.querySelector("#confirm-password");
     const submit = document.querySelector(".submit-btn");
 
+    // REPEAT PASSWORD CHECK
     submit.addEventListener("click", () => {
         if (password.value !== confirmPassword.value) {
             alert("Passwords did not match!");

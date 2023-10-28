@@ -1,6 +1,6 @@
 <?php require 'partials/header-sign-up.php'; ?>
 
-    <main class="main-login">
+    <main>
         <div class="main-container-login">
             <form action="" class="login-form">
                 <h1 class="header-text-login">Reset Password</h1>
