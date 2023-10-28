@@ -1,5 +1,10 @@
-    <?php require 'partials/header-profile.php' ?>
+<!-- Head -->
+<?php require 'partials/head.php'; ?>
 
+<!-- Header -->
+<?php require 'partials/header-profile.php'; ?>
+    
+    <!-- Main -->
     <main>
         <h1>efsefsfs</h1>
         <h2>addadwada</h2> 
@@ -10,6 +15,6 @@
         ?>
     </main>
 
-    <?php require 'partials/footer.php' ?>
-</body>
-</html>
+<!-- Footer -->
+<?php require 'partials/footer.php'; ?>
+

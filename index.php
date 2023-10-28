@@ -11,12 +11,15 @@ $routes = [
     "/details" => "controllers/details.php",
     "/contact" => "controllers/contact.php",
     "/work" => "controllers/work.php",
-    "/first-page" => "controllers/first-page.php",
     "/profiles" => "controllers/profiles.php",
     "/login" => "controllers/login.php",
     "/sign-up" => "controllers/sign-up.php",
     "/forgot-password" => "controllers/forgot-password.php",
-    "/reset-password" => "controllers/reset-password.php",
+   //  "/reset-password" => "controllers/reset-password.php",
+    "/my-account" => "controllers/my-account.php",
+    "/logout" => "controllers/logout.php",
+    "/my-portfolio" => "controllers/my-portfolio.php",
+    "/profile" => "controllers/profile.php",
 
 ];
 

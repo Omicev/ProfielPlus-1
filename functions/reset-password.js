@@ -1,25 +1,6 @@
-
-let registrationForm = document.getElementsByClassName('registration-form');
-
-let passwordInput = document.getElementById('password');
-let confirmPasswordInput = document.getElementById('confirm-password');
-
-
 document.addEventListener("DOMContentLoaded", () => {
-    const password = document.querySelector("#password");
-    const showPassword = document.querySelector(".fa-eye-slash");
-    
-    // Show/hide password function.
-    showPassword.addEventListener('click', () => {
-        if (password.type === "password") {
-            password.type = "text";
-            showPassword.classList.replace("fa-eye-slash", "fa-eye");
-        } else {
-            password.type = "password";
-            showPassword.classList.replace("fa-eye", "fa-eye-slash");
-        }
-    }); 
 
+    // --------------------- DROPMENU ---------------------
     const toggleBtn = document.querySelector('.toggle-btn');
     const closeBtn = document.querySelector('.close-btn');
     const dropMenu = document.querySelector('.drop-menu');
@@ -62,6 +43,19 @@ document.addEventListener("DOMContentLoaded", () => {
             toggleBtn.classList.remove('active');
         }
     });
+
+    const password = document.querySelector("#password");
+    const confirmPassword = document.querySelector("#confirm-password");
+    const submit = document.querySelector("#submit");
+    
+    // REPEAT PASSWORD CHECK
+    submit.addEventListener("click", () => {
+        if (password.value !== confirmPassword.value) {
+            alert("Passwords did not match!");
+            event.preventDefault(); 
+        } 
+        // else {
+        //     alert("Passwords does match"); 
+        // }
+    });
 });
-
-

@@ -1,6 +1,17 @@
+<!-- Head -->
+<?php require 'partials/head.php'; ?>
 
-    <?php require 'partials/header-login.php';?>
+<!-- Header -->
+<?php require 'partials/header.php';?>
 
+    <?php 
+        if (isset($_SESSION['user_id'])) {
+            header('Location: /');
+            exit();
+        } 
+    ?>
+
+    <!-- Main -->
     <main>
         <div class="main-container-login">
             <form method="post" action="login.php" class="login-form">
@@ -18,10 +29,10 @@
                     </div>  
                 </div>
                 <div class="container-remember-forgot">
-                    <div class="container-remember">
+                    <!-- <div class="container-remember">
                         <input type="checkbox" id="remember">
                         <label for="remember">Remember me</label>
-                    </div>
+                    </div> -->
                     <a class="<?= ($_SERVER['REQUEST_URI'] == '/forgot-password' ? 'active' : ''); ?>" href="/forgot-password">Forgot password</a>
                 </div>
                 <input type="submit" name="login" value="Login" class="submit-style">
@@ -30,4 +41,5 @@
         </div>
     </main>
 
-    <?php require 'partials/footer.php';?>
+<!-- Footer -->
+<?php require 'partials/footer.php';?>

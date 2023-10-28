@@ -21,25 +21,16 @@ if (isset($_POST['login'])) {
         $stmt = $conn->prepare($sql);
         $stmt->bindParam(':username', $username);
         $stmt->execute();
-        $user = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        die(var_dump($user));
-        
-        // echo $user['password'] . "<br>";
-        // echo $password . "<br>";
-
-        // $hashPassword = '$2y$10$8DO8V0.IrtXnSzDlrxZHJeK4470ZgiDRxw7uaEZU7TJ7DtbK6cf5y';
-
+        // die(var_dump($user));
         if ($user) {
-            // Verify the password
-            echo $user['password'] . "<br>";
+            // Verify the password of the user in array users.
             if (password_verify($password, $user["password"])) {
-            // if (password_verify($password, $hashPassword)) {
-            
                 session_start();
                 $_SESSION['user_id'] = $user['user_id'];
                 
-                header('Location: /first-page');
+                header('Location: /');
                 exit(); 
             } else {
                 echo "Invalid Password.";

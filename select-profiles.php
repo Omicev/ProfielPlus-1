@@ -1,5 +1,7 @@
 <?php
 
+require 'database.php';
+
 $sql = "SELECT * FROM profiles";
 $stmt = $conn->prepare($sql);
 $stmt->execute();

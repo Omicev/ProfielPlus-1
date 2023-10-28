@@ -1,33 +1,34 @@
-    <!-- Header -->
-    <?php require 'views/partials/header-first.php';?>
+<!-- Head -->
+<?php require 'partials/head.php'; ?>
+
+<!-- Header -->
+<?php require 'views/partials/header.php';?>
+
+<?php 
+    if (!isset($_SESSION['user_id'])) {
+        header('Location: /login');
+    } 
+
+?>
 
     <!-- Main -->
     <main>
         <div class="main-container-profiles">
             <?php
-                    require 'database.php';
-                    // require 'select-profiles.php';
-
-                    $sql = "SELECT * FROM profiles";
-                    $stmt = $conn->prepare($sql);
-                    $stmt->execute();
-                    $profiles = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    require 'select-profiles.php';
 
                     echo "<ul>";
                         foreach ($profiles as $profile) {
                             echo "<li><a href='profiles.php?id=" . $profile['user_id'] . "'>Profile " . $profile['firstname'] . " " . $profile['lastname'] . "</a></li><br>";
                         }
                     echo "</ul>";
-
-                    // echo "<H1>PROFIEL van " . $profile['firstname'] . "</H1><br>";
                 ?>
             </div>
     </main>
 
-    <!-- Footer -->
-    <?php require 'partials/footer.php';?>
-</body>
-</html>
+<!-- Footer -->
+<?php require 'partials/footer.php';?>
+
 
 
         

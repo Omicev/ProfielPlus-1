@@ -1,9 +1,19 @@
+ <!-- <input type="submit" name="create-account" value="Next" class="submit-style" id="create-account"> -->
 
+<!-- Head -->
+<?php require 'partials/head.php'; ?>
 
-    <!-- <input type="submit" name="create-account" value="Next" class="submit-style" id="create-account"> -->
+<!-- Header -->
+<?php require 'partials/header.php'; ?>
+    
+    <?php 
+        if (isset($_SESSION['user_id'])) {
+            header('Location: /first-page');
+            exit();
+        } 
+    ?>
 
-    <?php require 'partials/header-sign-up.php'; ?>
-
+    <!-- Main -->
     <main>
         <div class="main-container-login">
             <form action="add-user.php" class="registration-form" method="post">
@@ -42,7 +52,7 @@
                     </div>
                     <div class="prev-next-btn">
                         <button class="prev-btn" type="button" name="prev-btn">Prev</button>
-                        <button class="submit-btn" type="submit" name="submit-btn">Submit</button>
+                        <button class="submit-btn" id="submit" type="submit" name="submit-btn">Submit</button>
                     </div>
                 </div>
 
@@ -78,4 +88,5 @@
         </div>
     </main>
 
-    <?php require 'partials/footer.php';?>
+<!-- Footer -->
+<?php require 'partials/footer.php';?>
