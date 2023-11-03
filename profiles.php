@@ -2,14 +2,20 @@
 
 require 'database.php';
 
+// Get id from the link.
 $id = $_GET['id'];
 
-$sql = "select * from users where user_id = $id";
+// Fetch data of table users.
+$sql = "SELECT * from users where user_id = :id";
 $stmt = $conn->prepare($sql);
+$stmt->bindParam(':id', $id);
 $stmt->execute();
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
+// If user exists.
 if ($user) {
+    session_start();
+    $_SESSION['profileUserId'] = $_GET['id'];
     require 'views/profile.view.php';
 } else {
     echo "leeg";

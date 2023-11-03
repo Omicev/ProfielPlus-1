@@ -2,7 +2,8 @@
 <?php require 'partials/head.php'; ?>
 
 <?php 
-    if (!isset($_SESSION['user_id'])) {
+    // Go back to the login page when you're NOT logged in.
+    if (empty($_SESSION['user_id'])) {
         header('Location: /login');
     } 
 ?>

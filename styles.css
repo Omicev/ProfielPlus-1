@@ -5,7 +5,6 @@
 
 body {
     height: 100vh;
-    /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
     font-family: 'Open Sans', sans-serif;
     color: #FFFFFF;
     background-image: url('./images/bg-project.jpg');
@@ -21,42 +20,27 @@ body {
 
 header {
     grid-area: header;
-    /* background-color: red; */
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding-left: 2rem;
     padding-right: 2rem;
-    /* padding-right: 4rem; */
 }
 
-/* test met div om de content */
 main {
     grid-area: main;
-    /* background-color: aqua; */
 }
-
-/* .main-container-profiles,
-.main-container-home,
-.main-container-login {
-    display: flex;
-    align-items: center;
-    margin-top: 5rem;
-}
-
 
 .main-container {
     justify-content: space-evenly;
 }
 
-
 .main-container-left {
     padding-left: 2rem;
-} */
+} 
 
 footer {
     grid-area: footer;
-    /* background-color:blanchedalmond; */
     display: flex;
     align-items: center;
     font-style: italic;
@@ -139,12 +123,10 @@ li {
     cursor: pointer;
 }
 
-/* Show the drop menu when the 'active' class is added */
 .drop-menu.active {
     display: block;
 }
 
-/* Show the close button when the 'active' class is added */
 .close-btn.active {
     display: block;
 }
@@ -152,7 +134,6 @@ li {
 .toggle-btn.active {
     display: block;
 }
-
 
 /* ------------------------------- */
 /* PORTFOLIO */
@@ -170,6 +151,7 @@ li {
 
 .profile-picture {
     width: 400px;
+    height: 400px;
     border-radius: 50%;
 }
 .container-text {
@@ -192,27 +174,26 @@ li {
     text-shadow: 3px 3px 3px #323352;
 }
 
-.about-btn {
+.left-btn {
     background-color: #3e3c57;
 }
 
-.work-btn {
+.right-btn {
     background-color: #785c7b;
 }
 
-.about-btn:hover, .work-btn:hover {
+.left-btn:hover, .right-btn:hover {
     background-color: #808080;
 }
 
-.about-btn:active, .work-btn:active  {
+.left-btn:active, .right-btn:active  {
     background-color: #1a1a1a;
 }
 
-.work-btn, .about-btn {
+.left-btn, .right-btn {
     padding: 0.5rem;
-    border-radius: 50px;  /* 50px */
+    border-radius: 50px;  
     border:  2px solid #323352;
-    /* border: none; */
     text-shadow: 2px 2px 3px #000000;
     font-weight: bold;
 }
@@ -228,15 +209,9 @@ body {
         .links-drop-menu > li {
             padding: 1.1rem;
         }
-    
-        /* .toggle-btn {
-            display: block;
-        } */
-        
     }
 
     @media (max-width: 790px) {
-
         .main-container-portfolio {
             display: flex;
             flex-direction: column;
@@ -257,8 +232,8 @@ body {
     
         .profile-picture {
             width: 290px;
+            height: 290px;
         }
-
     } 
 }
 /* ----------------------------------------------------------- */
@@ -275,49 +250,34 @@ body {
 
 .login-form {
     background-color: #FFFFFF;
-    /* margin-top: -10rem; */
     height: 500px;
     width: 600px;
-    /* margin-left: 4rem; */
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     padding: 2rem;
-    /* gap: rem; */
     box-shadow:  0px 0px 10px 2px #3e3c57;
     border-radius: 5px;
-    /* backdrop-filter: blur(5px); */
     color: #3e3c57;
     text-align: center;
 
 }
 
-/* .header-text-login {
-    text-align: center;
-} */
-
 .container-user-password {
-    /* background-color: #785c7b;
-    padding: 0.05rem; */
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    /* margin-bottom: 2rem; */
 }
 
 .container-remember-forgot {
-    /* background-color: aqua; */
     display: flex;
     justify-content: space-between;
-    /* gap: 20rem; */
 }
 
 .container-remember-forgot > a {
     color: #a1748c;
 }
 
-
-/* Add this CSS to move icons inside the input elements */
 .user-with-icon,
 .password-with-icon {
     display: flex;
@@ -331,7 +291,6 @@ body {
     position: absolute;
     left: 1rem; 
     top: 1rem;
-    /* transform: translateY(-50%); */
     color: #323352;
 }
 
@@ -346,41 +305,27 @@ body {
 
 .username-style,
 .password-style {
-    width: 100%; /* Make the input 85% width */
-    padding-left: 2rem; /* Add left padding to create space for the icon */
+    width: 100%; 
+    padding-left: 2rem; 
     padding: 1rem 4.5rem;
     border: 1px solid #323252;
     border-radius: 5px;
     transition: border-color 0.3s;
     font-weight: bold;
-    /* box-sizing: border-box; */
+
 }
 
-/* Hide the placeholder text when the input is focused */
 .username-style:focus::placeholder,
 .password-style:focus::placeholder {
     color: transparent;
 }
 
-
-
-/* Add this CSS to change the border color when the input is focused */
 .username-style:valid,
 .password-style:valid,
 .username-style:invalid,
 .password-style:invalid  {
     padding-left: 2.5rem; 
 }
-
-/* .email-style:invalid,
-.password-style:invalid { 
-    border-color: red;
-} */
-
-/* input[type="email"]:invalid,
-input[type="password"]:invalid { 
-    border-color: red;
-} */
 
 .submit-style {
     background-color: #323352;
@@ -395,8 +340,6 @@ input[type="password"]:invalid {
     /* box-shadow:  0px 0px 10px 2px #3e3c57; */
 }
 
-
-
 .submit-style:active {
     background-color: #a1748c; /* Change to the color you want when clicked */
     /* You can also adjust other styles like text color, box-shadow, etc. */
@@ -407,14 +350,6 @@ input[type="password"]:invalid {
     text-align: center;
 }
 
-
-/* @media (max-width: 768px) {
-    form {
-      margin-left: 2rem; 
-      margin-right: 2rem; 
-    }
-} */
-
 /* ----------------------------------------------------- */
 
 /* REGISTRATION */
@@ -422,11 +357,6 @@ input[type="password"]:invalid {
     background-color: #FFFFFF;
     height: 500px;
     width: 600px;
-    /* display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center; */
-    /* gap: rem; */
     padding: 3rem;
     box-shadow:  0px 0px 10px 2px #3e3c57;
     border-radius: 5px;
@@ -434,12 +364,10 @@ input[type="password"]:invalid {
 }
 
 .tab1, .tab2 {
-    /* background-color: aquamarine; */
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 4rem;
-    /* padding: 2rem; */
 }
 
 .tab2 {
@@ -447,25 +375,18 @@ input[type="password"]:invalid {
 }
 
 .registration-text {
-    /* background-color: aqua; */
     display: flex;
     flex-direction: column;
     gap: 1rem;
     width: 100%;
-    /* border-radius: 5px;
-    transition: border-color 0.3s;
-    font-weight: bold; */
-    /* box-sizing: border-box; */
-  }
+}
 
 .registration-text-style {
-  /* width: 10%;  */
   padding: 1rem 1rem;
   border: 1px solid #323252;
   border-radius: 5px;
   transition: border-color 0.3s;
   font-weight: bold; 
-  /* box-sizing: border-box;*/
 }
 
 .prev-next-btn {
@@ -483,7 +404,6 @@ input[type="password"]:invalid {
     border-radius: 5px;
     border: none;
     box-shadow: 0px 0px 1px 2px #323352;
-    /* box-shadow:  0px 0px 10px 2px #3e3c57; */
 }
 
 .next-btn,
@@ -498,20 +418,12 @@ input[type="password"]:invalid {
 /* . RESPONSIVENESS LOGIN/REGISTRATION */
 body {
     @media (max-width:750px) { 
-        
-        
-        
         .login-form,
         .registration-form {
             width: 70%;
         }
-
     }
 }
-
-
-
-/* ------------------- END DANIEL STYLING ----------------------------------- */
 
 /* ---------------------- HOME ----------------------*/
 .main-container-home {
@@ -527,7 +439,6 @@ body {
     text-align: center;
 }
 
-
 /* ---------------------- PROFILES ---------------------- */
 .main-container-profiles {
     display: flex;
@@ -535,7 +446,6 @@ body {
     margin-top: 5rem;
     padding-left: 2rem;
 }
-
 
 /* ---------------------- MY ACCOUNT ---------------------- */
 .main-container-my-account {
@@ -546,51 +456,26 @@ body {
 
 }
 
-
 .my-account-form {
     background-color: #FFFFFF;
-    /* margin-top: -10rem; */
     height: 650px;
     width: 800px;
-
-    /* margin-left: 4rem; */
-
-    /* display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-
-    padding: 2rem; */
-
-    
-
-    /* gap: rem; */
     box-shadow:  0px 0px 10px 2px #3e3c57;
     border-radius: 5px;
-    /* backdrop-filter: blur(5px); */
     color: #3e3c57;
-    /* text-align: center; */
-
     display: grid;
     grid-template-columns: 30% auto;
     grid-template-areas: 
     'aside-my-account section-my-account';
 }
 
-/* .header-text-login {
-    grid-area: header-my-account;
-    padding: 1rem;
-} */
-
 .aside-my-account {
     grid-area: aside-my-account;
-
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
     padding: 1rem;
-
     box-shadow:  0px 0px 10px 2px #3e3c57;
     border-radius: 5px;
 }
@@ -599,12 +484,6 @@ body {
     display: flex;
     flex-direction: column;
     gap: 5rem;
-    
-    
-    /* gap: 3rem; 
-    position: relative;
-    top: 3rem;
-    left: 3rem; */
 }
 
 .nav-aside-my-account > li {
@@ -617,33 +496,18 @@ body {
     color: #3e3c57;
 }
 
-
-
 .data-my-account {
     grid-area: section-my-account;
-    /* display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    text-align: start; */
-
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    /* padding: 0 3rem; */
-
 }
 
 .data-my-account > label {
     align-self: flex-start;
     margin-left: 4rem;
-    /* position: relative;
-    left: 12%; */
 }
-
-/* .header-text-my-account {
-    text-align: center;
-} */
 
 .data-my-account > input {
     padding: 1rem;
@@ -651,14 +515,12 @@ body {
 }
 
 .session-message {
-    /* display: inline; */
     position: absolute;
     top: 7rem;
-    left: 50%; /* Set left to 50% */
-    transform: translateX(-50%); /* Center horizontally */
+    left: 50%; 
+    transform: translateX(-50%); 
     text-align: center;
 }
-
 
 /* MY ACCOUNT PROFILE */
 #change-profile-picture {
@@ -666,7 +528,6 @@ body {
     height: 200px;
     border: 1px solid #323352;
     border-radius: 50%;
-    /* object-fit: cover; */
 }
 
 .container-label-input-profile {
@@ -678,7 +539,7 @@ body {
 }
 
 
-/* . RESPONSIVENESS MY ACCOUNT*/
+/*  RESPONSIVENESS MY ACCOUNT */
 body {
     @media (max-width:850px) { 
         .my-account-form {

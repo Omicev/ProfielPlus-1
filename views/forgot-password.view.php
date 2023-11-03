@@ -5,8 +5,9 @@
 <?php require 'partials/header.php'; ?>
 
     <?php 
+        // Go back to the index page when you're logged in.
         if (isset($_SESSION['user_id'])) {
-            header('Location: /first-page');
+            header('Location: /');
             exit();
         } 
     ?>
@@ -18,12 +19,10 @@
                 <h1 class="header-text-login">Forgot Password</h1>
                 <h3>Send a link to your email to reset your password</h3>
                 <div class="registration-text">
-                    <input type="email" id="user-mail" name="email" placeholder="Email" class="registration-text-style">
+                    <input type="email" id="user-mail" name="email" placeholder="Email" class="registration-text-style" required>
                 </div>
                 <input type="submit" name="submit" value="Send Reset Link" class="submit-style">
-                <!-- <p class="email-check">Check your email!<p> -->
             </form>
-
         </div>
     </main>
 

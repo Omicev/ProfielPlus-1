@@ -2,6 +2,7 @@
 
 require 'database.php';
 
+// Fetch all profiles.
 $sql = "SELECT * FROM profiles";
 $stmt = $conn->prepare($sql);
 $stmt->execute();

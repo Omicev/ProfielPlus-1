@@ -1,6 +1,10 @@
 <!-- Head -->
 <?php require 'partials/head.php'; ?>
 
+<!-- All the data of the tables -->
+<?php require 'check-my-profile.php';?>
+
+<!-- You have to be logged in to go on this page. -->
 <?php 
     if (empty($_SESSION['user_id'])) {
         header('Location: /login');
@@ -14,16 +18,21 @@
     <main>
         <div class="main-container-portfolio">
             <section class="container-profile-picture">
-                <img src="images/Showtime-Canelo-v-Plant-PPV-Vegas-Fight-Night-WESTCOTT-135.jpg" 
-                alt="picture-of-me"
-                class="profile-picture">
+                <?php
+                    // die(var_dump($_SESSION['profileUserId']));
+                    if ($profile['profile_image'] != NULL){
+                        echo "<img src='data:image/jpeg;base64," . $profileImage . "' class='profile-picture' alt='profile Picture'>";
+                    } else {
+                        echo "<img src='images\Default_pfp.svg.png' alt='picture-of-me' class='profile-picture'>";
+                    }
+                ?>
             </section>  
             <section class="container-text">
-                <h1 class="header-text-main">Hello, I am <span>Daniel!</span></h1>
-                <h3>Software Devoloper</h3>
+                <?php echo "<h1 class='header-text-main'>Hello, I am <span>" . $profile['firstname'] . "!</span></h1>"?>
+                <?php echo "<h3>". $profile['job_function'] . "</h3>";?>
                 <div class="container-btn">
-                    <button class="about-btn"><a href="#">About Me</a></button>
-                    <button class="work-btn"><a href="#">See My Work</a></button>
+                    <button class="left-btn"><a class="<?= ($_SERVER['REQUEST_URI'] == '/about' ? 'active' : ''); ?>" href="/about">About Me</a></button>
+                    <button class="right-btn"><a class="<?= ($_SERVER['REQUEST_URI'] == '/work' ? 'active' : ''); ?>" href="/work">See My Work</a></button>
                 </div>
             </section>  
         </div>

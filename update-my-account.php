@@ -3,19 +3,16 @@
 if (isset($_POST['submit'])){
     session_start();
     $userId = $_SESSION['user_id'];
-    // ----------
-    // die(var_dump($_SESSION['user_id']));
-    // -----------
+
     $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_SPECIAL_CHARS);
     $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
-    
     $newFirstName = filter_input(INPUT_POST, 'firstname', FILTER_SANITIZE_SPECIAL_CHARS);
     $newLastName = filter_input(INPUT_POST, 'lastname', FILTER_SANITIZE_SPECIAL_CHARS);
     $newDOB = $_POST['dob'];
 
     require 'database.php';
 
-    // Check if username/email already exists.
+    // Check if username already exists.
     $sqlUsername = "SELECT * FROM users 
                     WHERE username = :username";
     $stmtUsername = $conn->prepare($sqlUsername);
@@ -46,6 +43,7 @@ if (isset($_POST['submit'])){
         exit();
     }
 
+    // Update everything for profiles.
     $sqlProfile = "UPDATE profiles
                    SET firstname = :firstname, lastname = :lastname, dob = :dob
                    WHERE user_id = :user_id";
@@ -56,6 +54,7 @@ if (isset($_POST['submit'])){
     $stmtProfile->bindParam(':dob', $newDOB);
     $stmtProfile->execute();
 
+    // Update everything for users.
     $sqlUser = "UPDATE users
                 SET username = :username, email = :email
                 WHERE user_id = :user_id";
@@ -65,12 +64,10 @@ if (isset($_POST['submit'])){
     $stmtUser->bindParam(':email', $email);
     $stmtUser->execute();
     
+    // If both statements are good executed.
     if ($stmtUser && $stmtProfile){
-        $_SESSION['success_message'] = "Your account has been updated successfully!";
+        $_SESSION['success_message'] = "Your account has been successfully updated!";
         header('Location: /my-account-general');
         exit();
     }
-    
-    
-
 }

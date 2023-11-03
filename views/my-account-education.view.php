@@ -20,9 +20,14 @@
                 echo '<p class="session-message">' . $_SESSION['success_message'] . '</p>';
                 unset($_SESSION['success_message']); 
             }
+            // Error message.
+            if (isset($_SESSION['error_message'])) {
+                echo '<p class="session-message">' . $_SESSION['error_message'] . '</p>';
+                unset($_SESSION['error_message']); 
+            }
         ?>
         <div class="main-container-my-account">
-            <form method="post" action="update-profile.php" class="my-account-form" enctype="multipart/form-data">
+            <form method="post" action="update-my-account.php" class="my-account-form">
                 <aside class="aside-my-account">
                     <ul class="nav-aside-my-account">
                         <li><a class="<?= ($_SERVER['REQUEST_URI'] == '/my-account-general' ? 'active' : ''); ?>" href="/my-account-general">General</a></li>
@@ -36,28 +41,36 @@
                             if ($_SESSION['user_id'] == 9) {
                                 echo "<li><a class='(". $_SERVER['REQUEST_URI'] . "== '/my-account-admin' ? 'active' : '')' href='/my-account-admin'>Admin</a></li>";
                             }
-                        ?>        
+                        ?>
 
                     </ul>
-                </aside>               
-                <section class="data-my-account">                    
-                    <h1>My Account</h1>
-                    <h4><u>Profile</u></h4>
-                    <h5>Change Profile Page:</h5>                 
-                    <?php
-                        if ($profile['profile_image'] != NULL){
-                            echo "<img src='data:image/jpeg;base64," . $profileImage . "' id='change-profile-picture' alt='Profile Picture'>";
-                        } else {
-                            echo "<img src='images\Default_pfp.svg.png' id='change-profile-picture' alt='Profile Picture'>";
-                        }                       
-                    ?>
-                    <section class="container-label-input-profile">
-                        <label for="change-profile-picture">Choose image to upload</label>
-                        <input type="file" id="change-profile-picture-file" name="profile-picture" accept="image/*">
-                    </section>
-                    <label for="job-function">Job Function:</label>
-                    <input type="text" name="job-function" id="job-function" value="<?php echo $profile['job_function']; ?>" placeholder="Job Function:" required>  
-                    <input type="submit" name="submit" id="submit"  value="Update Profile" class="submit-style">
+                </aside>
+                
+                <section class="data-my-account">     
+                    <h1 class="header-text-my-account">My Account</h1>
+                    <h4><u>Education</u></h4>
+                    <label for="school">Schoolnaam:</label>
+                    <input type="text" id="school" placeholder="max. 50 karakters" maxlength="50"  required>
+                    <label for="diploma">Diploma:</label>
+                      <select id="diploma">
+                        <option value="vmbo">VMBO</option>
+                        <option value="havo">HAVO</option>
+                        <option value="vwo">VWO</option>
+                        <option value="mbon4">MBO Niveau 4</option>
+                        <option value="hboad">HBO (AD)</option>
+                        <option value="hbobach">HBO (Bachelor)</option>
+                        <option value="hbomast">HBO (Master)</option>
+                        <option value="posthbo">Post-HBO Kwalificatie</option>
+                        <option value="wobach">WO (Bachelor)</option>
+                        <option value="womast">WO (Master)</option>
+                        <option value="engd">Engineering Doctorate</option>
+                        <option value="phd">Dr./PhD</option>
+                      </select>
+                    <label for="date1">Begindatum:</label>
+                    <input type="date" id="date1">
+                    <label for="date2">Einddatum:</label>
+                    <input type="date" id="date2"><br>                
+                    <input type="submit" name="submit" value="Update Profile" class="submit-style">
                 </section>
             </form>
         </div>

@@ -17,6 +17,7 @@ if (isset($_POST['login'])) {
         
         require 'database.php';
 
+        // Check if the username exists.
         $sql = "SELECT * FROM users 
                 where username = :username";
         $stmt = $conn->prepare($sql);
@@ -24,12 +25,9 @@ if (isset($_POST['login'])) {
         $stmt->execute();
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        // die(var_dump($user['user_id']));
-        // die(var_dump($user)); //user doesnt exist -> false
-
 
         if ($user) {
-            // Verify the password of the user in array users.
+            // Verify the password and the hashed password in the database.
             if (password_verify($password, $user["password"])) {
 
                 $_SESSION['user_id'] = $user['user_id'];

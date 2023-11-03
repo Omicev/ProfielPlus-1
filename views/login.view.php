@@ -4,18 +4,22 @@
 <!-- Header -->
 <?php require 'partials/header.php';?>
 
-
-
     <!-- Main -->
     <main>
         <?php 
+            // Go back to the index page when you're logged in.
             if (isset($_SESSION['user_id'])) {
                 header('Location: /');
                 exit();
             } 
+            // Success message.
+            if (isset($_SESSION['success_message'])) {
+                echo '<h3 class="session-message">' . $_SESSION['success_message'] . '</h3>';
+                unset($_SESSION['success_message']); 
+            }
+            // Error message.
             if (isset($_SESSION['error_message'])) {
                 echo '<h3 class="session-message">' . $_SESSION['error_message'] . '</h3>';
-                // Removes the message on refresh.
                 unset($_SESSION['error_message']); 
             }
         ?>
@@ -31,14 +35,9 @@
                         <label for="password"><i class="fa-solid fa-lock" style="color: #323252;"></i></label>
                         <input type="password" id="password" name="password" placeholder="Password" class="password-style">
                         <i class="fa-solid fa-eye-slash"></i>
-                        <!-- <i class="fa-solid fa-eye"></i> -->
                     </div>  
                 </div>
                 <div class="container-remember-forgot">
-                    <!-- <div class="container-remember">
-                        <input type="checkbox" id="remember">
-                        <label for="remember">Remember me</label>
-                    </div> -->
                     <a class="<?= ($_SERVER['REQUEST_URI'] == '/forgot-password' ? 'active' : ''); ?>" href="/forgot-password">Forgot password</a>
                 </div>
                 <input type="submit" name="login" value="Login" class="submit-style">

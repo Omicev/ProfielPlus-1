@@ -12,8 +12,8 @@
                 <h1 class="header-text-login">Reset Password</h1>
                 <h3>Please change your password</h3>
                 <div class="registration-text">
-                    <input type="password" id="password" name="password" placeholder="Password" class="registration-text-style">
-                    <input type="password" id="confirm-password" placeholder="Confirm Password" class="registration-text-style">
+                    <input type="password" id="password" name="password" placeholder="Password" class="registration-text-style" required>
+                    <input type="password" id="confirm-password" placeholder="Confirm Password" class="registration-text-style" required>
                 </div>
                 <input type="submit" id="submit" name="submit" value="Save New Password" class="submit-style">
             </form>

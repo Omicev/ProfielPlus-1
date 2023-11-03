@@ -15,13 +15,19 @@ if (isset($_POST['submit'])){
     $stmtUsername->execute();
     $userUsername = $stmtUsername->fetch(PDO::FETCH_ASSOC);
 
-    // If the user exists, delete the user.
-    if ($userUsername) {
+    // If the user exists and is not the admin, delete the user.
+    if ($userUsername && $userUsername['user_id'] != 9) {
         // Delete user.
+        $sqlProfile = "DELETE from profiles
+                       WHERE user_id = :user_id";
+        $stmtProfile = $conn->prepare($sqlProfile);
+        $stmtProfile->bindParam(':user_id', $userUsername['user_id']);
+        $stmtProfile->execute();
+
         $sqlUser = "DELETE from users
-                    WHERE username = :username";
+                    WHERE user_id = :user_id";
         $stmtUser = $conn->prepare($sqlUser);
-        $stmtUser->bindParam(':username', $username);
+        $stmtUser->bindParam(':user_id', $userUsername['user_id']);
         $stmtUser->execute();
                 
         $_SESSION['session_message'] = "You successfully deleted the user!";
@@ -33,4 +39,5 @@ if (isset($_POST['submit'])){
         header('Location: /my-account-admin');
         exit();
     }
+
 }

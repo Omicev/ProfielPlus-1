@@ -4,13 +4,13 @@
 <!-- Header -->
 <?php require 'views/partials/header.php';?>
 
-    <!-- Main BUTTONS NAMES WRONG!!!!!!--> 
+    <!-- Main --> 
     <main>
         <?php
+            // Welcome message.
             if (isset($_SESSION['welcome_message'])) {
                 echo '<h3 class="session-message">' . $_SESSION['welcome_message'] . '</h3>';
-                // Removes the message on refresh.
-                unset($_SESSION['success_message']); 
+                unset($_SESSION['welcome_message']); 
             }
         ?>
         <div class="main-container-home">
@@ -19,11 +19,12 @@
                 <div class="home-buttons">
                     <?php 
                         if (isset($_SESSION['user_id'])) {
-                            echo "<button class='about-btn'><a class='nav-link (" . $_SERVER['REQUEST_URI'] . "== '/my-account-general' ? 'active' : ''); href='/my-account-general'>My account</a></button>";
-                            echo "<button class='work-btn'><a class='nav-link (" . $_SERVER['REQUEST_URI'] . "== '/profiles' ? 'active' : '');  href='/profiles'>Check Profiles</a></button>";
+                            echo "<button class='left-btn'><a class='nav-link (" . $_SERVER['REQUEST_URI'] . "== '/profiles' ? 'active' : '');  href='/profiles'>Check Profiles</a></button>";
+                            echo "<button class='right-btn'><a class='nav-link (" . $_SERVER['REQUEST_URI'] . "== '/my-account-general' ? 'active' : ''); href='/my-account-general'>My account</a></button>";
+
                         } else {
-                            echo "<button class='about-btn'><a class='nav-link (" . $_SERVER['REQUEST_URI'] . "== '/login' ? 'active' : ''); href='/login'>Login</a></button>";
-                            echo "<button class='work-btn'><a class='nav-link (" . $_SERVER['REQUEST_URI'] . "== '/profiles' ? 'active' : '');  href='/profiles'>Check Profiles</a></button>";
+                            echo "<button class='left-btn'><a class='nav-link (" . $_SERVER['REQUEST_URI'] . "== '/login' ? 'active' : ''); href='/login'>Login</a></button>";
+                            echo "<button class='right-btn'><a class='nav-link (" . $_SERVER['REQUEST_URI'] . "== '/profiles' ? 'active' : '');  href='/profiles'>Check Profiles</a></button>";
                         }
                     ?>
                 </div>

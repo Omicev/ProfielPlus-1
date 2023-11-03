@@ -4,9 +4,9 @@ if (isset($_POST['submit'])) {
 
     $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
 
-    $token = bin2hex(random_bytes(16));
-    $tokenHash = hash("sha256", $token);
-    $expiry = date("Y-m-d H:i:s", time() + 60 * 30); 
+    $token = bin2hex(random_bytes(16)); // Make a token.
+    $tokenHash = hash("sha256", $token); // Hash the token for the database.
+    $expiry = date("Y-m-d H:i:s", time() + 60 * 30); // Expiry date for the hashed token.
 
     require 'database.php';
 
@@ -30,18 +30,15 @@ if (isset($_POST['submit'])) {
         $result = $stmt->execute();
     
         // -------------------------------------------------------------------------------------
+        // ***** PROBLEM: Couldn't send the link to someone's mailbox. *****
 
         // ini_set("SMTP", "underdogs.portfolio@gmail.com");
         // ini_set("smtp_port", 25); // Use the appropriate SMTP port for your server
         // ini_set("sendmail_from", "underdogs.portfolio@gmail.com");
 
-
         $to = $email;
         $subject = 'Reset Your Password';
-        $message = "<p>Click <a href='password-link.php?id=" . $token . "'>here</a> to reset your password.</p>";
-        // "<p>Click <a class=\"" . ($_SERVER['REQUEST_URI'] == '/reset-password' ? 'active' : '') . "\" href='/reset-password'>here</a> to reset your password.</p>";
-        // "<p>Click <a class='(". $_SERVER['REQUEST_URI'] . "== '/reset-password' ? 'active' : '')' href='/reset-password'>here</a> to reset your password.</p>";
-        
+        $message = "<p>Click <a href='password-link.php?id=" . $token . "'>here</a> to reset your password.</p>";    
     
         $headers = "From: Underdogs <underdogs.portfolio@gmail.com>\r\n";
         $headers .= "Reply-To: underdogs.portfolio@gmail.com\r\n";
@@ -50,12 +47,12 @@ if (isset($_POST['submit'])) {
         mail($to, $subject, $message, $headers);  
         // ------------------------------------------------------------------------------------
         
+        // Bad solution (for a real company project) to show the reset link: 
         echo "<p>We have sent you the reset password link to your email!<p>";
         echo "<p>Click <a href='link-password.php?token=" . $token . "'>here</a> to reset your password.</p>";
         echo "<p>You can close this page or return back to 
               <a class='(". $_SERVER['REQUEST_URI'] . "== '/forgot-password' ? 'active' : '')' href='/forgot-password'>forgot password.</a>
               <p>";
-
     } else {
         echo "<p> Email not found. Go back to <a class='(". $_SERVER['REQUEST_URI'] . "== '/forgot-password' ? 'active' : '')' href='/forgot-password'>forgot password.</a>
         <p>";
