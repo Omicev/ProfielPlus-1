@@ -4,7 +4,7 @@ if (isset($_POST['submit'])) {
 
 
     $token = $_POST['token'];
-    $token_hash = hash('sha256', $token);
+    $tokenHash = hash('sha256', $token);
 
     $password = $_POST['password'];
     $hashPassword = password_hash($password, PASSWORD_DEFAULT);
@@ -19,7 +19,7 @@ if (isset($_POST['submit'])) {
     
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(':password', $hashPassword);
-    $stmt->bindParam(':reset_token_hash', $token_hash);
+    $stmt->bindParam(':reset_token_hash', $tokenHash);
     $result = $stmt->execute();
 
     if ($result) {

@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let toggleBtn = document.querySelector('.toggle-btn');
     let closeBtn = document.querySelector('.close-btn');
     let dropMenu = document.querySelector('.drop-menu');
+    let sessionMessage = document.querySelector('.session-message');
 
     // A toggle button will appear when the screen width is 990px or less.
     if (window.innerWidth <= 1300) {
@@ -19,10 +20,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Click on the toggle button to open the drop menu. 
     // The toggle button will be replaced for the close button.
+    // Session message will be removed
     toggleBtn.addEventListener('click', () => {
         toggleBtn.classList.remove('active');
         closeBtn.classList.add('active');
         dropMenu.classList.add('active');
+        sessionMessage.style.display = "none";
     });
 
     // Click on the close button to close the drop menu. 
@@ -90,18 +93,28 @@ document.addEventListener("DOMContentLoaded", () => {
     
     if (tab1 && tab2 && prevBtn && nextBtn) { 
         // Next button click event
-        nextBtn.addEventListener("click", function () {
+        nextBtn.addEventListener("click", () => {
             tab1.style.display = "none";
             tab2.style.display = "flex";
         });
         
         // Prev button click event
-        prevBtn.addEventListener("click", function () {
+        prevBtn.addEventListener("click", () => {
             tab1.style.display = "flex";
             tab2.style.display = "none";
         });
     }
 
+    // --------------------- CHANGE PROFILE PICTURE (MY ACCOUNT PAGE) ---------------------
+    const image = document.querySelector("#change-profile-picture"); 
+    const inputFile = document.querySelector("#change-profile-picture-file"); 
+
+    if (image && inputFile) { 
+        // Next button click event
+        inputFile.addEventListener("change", () => {
+            image.src = URL.createObjectURL(inputFile.files[0]);
+        });
+    }
 });
 
 

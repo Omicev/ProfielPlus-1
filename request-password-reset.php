@@ -5,7 +5,7 @@ if (isset($_POST['submit'])) {
     $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
 
     $token = bin2hex(random_bytes(16));
-    $token_hash = hash("sha256", $token);
+    $tokenHash = hash("sha256", $token);
     $expiry = date("Y-m-d H:i:s", time() + 60 * 30); 
 
     require 'database.php';
@@ -24,11 +24,18 @@ if (isset($_POST['submit'])) {
                 reset_token_expires_at = :reset_token_expires_at
                 WHERE email = :email";
         $stmt = $conn->prepare($sql);
-        $stmt->bindParam(':reset_token_hash', $token_hash);
+        $stmt->bindParam(':reset_token_hash', $tokenHash);
         $stmt->bindParam(':reset_token_expires_at', $expiry);
         $stmt->bindParam(':email', $email);
         $result = $stmt->execute();
     
+        // -------------------------------------------------------------------------------------
+
+        // ini_set("SMTP", "underdogs.portfolio@gmail.com");
+        // ini_set("smtp_port", 25); // Use the appropriate SMTP port for your server
+        // ini_set("sendmail_from", "underdogs.portfolio@gmail.com");
+
+
         $to = $email;
         $subject = 'Reset Your Password';
         $message = "<p>Click <a href='password-link.php?id=" . $token . "'>here</a> to reset your password.</p>";
@@ -41,6 +48,7 @@ if (isset($_POST['submit'])) {
         $headers .= "Content-type: text/html\r\n";
     
         mail($to, $subject, $message, $headers);  
+        // ------------------------------------------------------------------------------------
         
         echo "<p>We have sent you the reset password link to your email!<p>";
         echo "<p>Click <a href='link-password.php?token=" . $token . "'>here</a> to reset your password.</p>";

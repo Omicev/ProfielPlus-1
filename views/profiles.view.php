@@ -5,7 +5,7 @@
 <?php require 'views/partials/header.php';?>
 
 <?php 
-    if (!isset($_SESSION['user_id'])) {
+    if (empty($_SESSION['user_id'])) {
         header('Location: /login');
     } 
 

@@ -16,10 +16,13 @@ $routes = [
     "/sign-up" => "controllers/sign-up.php",
     "/forgot-password" => "controllers/forgot-password.php",
    //  "/reset-password" => "controllers/reset-password.php",
-    "/my-account" => "controllers/my-account.php",
     "/logout" => "controllers/logout.php",
     "/my-portfolio" => "controllers/my-portfolio.php",
     "/profile" => "controllers/profile.php",
+    "/my-account-general" => "controllers/my-account-general.php",
+    "/my-account-security" => "controllers/my-account-security.php",
+    "/my-account-profile" => "controllers/my-account-profile.php",
+    "/my-account-admin" => "controllers/my-account-admin.php",
 
 ];
 

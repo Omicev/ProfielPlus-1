@@ -5,7 +5,6 @@
 
 if (isset($_POST['submit-btn'])) {
 
-    // SANITIZE PASSWORD?????
     $password = $_POST['password'];
     $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_SPECIAL_CHARS);
     $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
@@ -26,31 +25,53 @@ if (isset($_POST['submit-btn'])) {
         
         require 'database.php';
 
+        // Check if username already exists.
+        $sqlUsername = "SELECT * FROM users 
+                        WHERE username = :username";
+        $stmtUsername = $conn->prepare($sqlUsername);
+        $stmtUsername->bindParam(':username', $username);
+        $stmtUsername->execute();
+        $userUsername = $stmtUsername->fetch(PDO::FETCH_ASSOC);
+
+        // Check if email already exists.
+        $sqlEmail = "SELECT * FROM users 
+        WHERE email = :email";
+        $stmtEmail = $conn->prepare($sqlEmail);
+        $stmtEmail->bindParam(':email', $email);
+        $stmtEmail->execute();
+        $userEmail = $stmtEmail->fetch(PDO::FETCH_ASSOC);
+
+        // Send messages if username and/or email already exist(s).
+        if($userUsername && $userEmail){
+            session_start();
+            $_SESSION['error_message'] = "Username and email already exist!";
+            header('Location: /sign-up');
+            exit();
+        } elseif ($userUsername) {
+            session_start();
+            $_SESSION['error_message'] = "Username already exists!";
+            header('Location: /sign-up');
+            exit();
+        } elseif ($userEmail) {
+            session_start();
+            $_SESSION['error_message'] = "Email already exists!";        
+            header('Location: /sign-up');
+            exit();
+        }
+
+
         $sqlUser = "INSERT INTO users (username, password, email) 
-        VALUES (:username, :password, :email)";
+                    VALUES (:username, :password, :email)";
         $stmtUser = $conn->prepare($sqlUser);
         $stmtUser->bindParam(':username', $username);
         $stmtUser->bindParam(':password', $hashPassword);
         $stmtUser->bindParam(':email', $email);
         $stmtUser->execute();
 
-        // $sqlUser = "INSERT INTO users (username, password, email) 
-        // VALUES ('$username', '$hashPassword', '$email')";
-        // $stmtUser = $conn->prepare($sqlUser);
-        // $stmtUser->execute();
-
-
         $lastInsertUserId = $conn->lastInsertId();
 
-        // $sqlProfile = "INSERT INTO profiles 
-        // (user_id, firstname, lastname, biography, dob) 
-        // VALUES ('$lastInsertUserId', '$firstName', '$lastName', '$biography', '$dob')";
-        // $stmtProfile = $conn->prepare($sqlProfile);
-        // $stmtProfile->execute();
-
-        $sqlProfile = "INSERT INTO profiles 
-        (user_id, firstname, lastname, biography, dob) 
-        VALUES (:user_id, :firstname, :lastname, :biography, :dob)";
+        $sqlProfile = "INSERT INTO profiles (user_id, firstname, lastname, biography, dob) 
+                       VALUES (:user_id, :firstname, :lastname, :biography, :dob)";
         $stmtProfile = $conn->prepare($sqlProfile);
         $stmtProfile->bindParam(':user_id', $lastInsertUserId);
         $stmtProfile->bindParam(':firstname', $firstName);
@@ -61,8 +82,6 @@ if (isset($_POST['submit-btn'])) {
 
         header('Location: /login');
         exit();
-
-
     } 
 }
 

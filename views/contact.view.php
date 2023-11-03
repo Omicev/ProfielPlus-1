@@ -1,6 +1,12 @@
 <!-- Head -->
 <?php require 'partials/head.php'; ?>
 
+<?php 
+    if (!isset($_SESSION['user_id'])) {
+        header('Location: /login');
+    } 
+?>
+
 <!-- Header -->
 <?php require 'partials/header-profile.php'; ?>
 

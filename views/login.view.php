@@ -4,15 +4,21 @@
 <!-- Header -->
 <?php require 'partials/header.php';?>
 
-    <?php 
-        if (isset($_SESSION['user_id'])) {
-            header('Location: /');
-            exit();
-        } 
-    ?>
+
 
     <!-- Main -->
     <main>
+        <?php 
+            if (isset($_SESSION['user_id'])) {
+                header('Location: /');
+                exit();
+            } 
+            if (isset($_SESSION['error_message'])) {
+                echo '<h3 class="session-message">' . $_SESSION['error_message'] . '</h3>';
+                // Removes the message on refresh.
+                unset($_SESSION['error_message']); 
+            }
+        ?>
         <div class="main-container-login">
             <form method="post" action="login.php" class="login-form">
                 <h1 class="header-text-login">Login Now</h1>
