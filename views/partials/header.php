@@ -11,8 +11,10 @@
                 <?php 
                     if (isset($_SESSION['user_id'])) {
                         echo "<li class='nav-item'><a class='nav-link (". $_SERVER['REQUEST_URI'] . "== '/my-acount-general' ? 'active' : '')' href='/my-account-general'>My Account</a></li>";
+                        echo "<li class='nav-item'><a class='nav-link (". $_SERVER['REQUEST_URI'] . "== '/contact' ? 'active' : '')' href='/contact'>Contact</a></li>";
                         echo "<li class='nav-item'><a class='nav-link (". $_SERVER['REQUEST_URI'] . "== '/logout' ? 'active' : '')' href='/logout'>Logout</a></li>";
                     } else {
+                        echo "<li class='nav-item'><a class='nav-link (". $_SERVER['REQUEST_URI'] . "== '/contact' ? 'active' : '')' href='/contact'>Contact</a></li>";
                         echo "<li class='nav-item'><a class='nav-link (". $_SERVER['REQUEST_URI'] . "== '/login' ? 'active' : '')' href='/login'>Login</a></li>";
                     }
                 ?>
@@ -36,8 +38,10 @@
                 <?php 
                     if (isset($_SESSION['user_id'])) {
                         echo "<li class='nav-item'><a class='nav-link (". $_SERVER['REQUEST_URI'] . "== '/my-acount-general' ? 'active' : '')' href='/my-account-general'>My Account</a></li>";
+                        echo "<li class='nav-item'><a class='nav-link (". $_SERVER['REQUEST_URI'] . "== '/contact' ? 'active' : '')' href='/contact'>Contact</a></li>";
                         echo "<li class='nav-item'><a class='nav-link (". $_SERVER['REQUEST_URI'] . "== '/logout' ? 'active' : '')' href='/logout'>Logout</a></li>";
                     } else {
+                        echo "<li class='nav-item'><a class='nav-link (". $_SERVER['REQUEST_URI'] . "== '/contact' ? 'active' : '')' href='/contact'>Contact</a></li>";
                         echo "<li class='nav-item'><a class='nav-link (". $_SERVER['REQUEST_URI'] . "== '/login' ? 'active' : '')' href='/login'>Login</a></li>";
                     }
                 ?>
