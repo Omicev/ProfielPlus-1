@@ -44,9 +44,9 @@
                     <h4><u>Security</u></h4>
                     <h5>Change Password:</h5>
                     <label for="password">Password:</label>
-                    <input type="password" name="password" id="password" placeholder="Password" required>
+                    <input type="password" name="password" id="password" placeholder="Password" minlength="8" required>
                     <label for="confirm-password">Confirm Password:</label>
-                    <input type="password" name="confirm-password" id="confirm-password" placeholder="Confirm Password" required>
+                    <input type="password" name="confirm-password" id="confirm-password" placeholder="Confirm Password" minlength="8" required>
                     <input type="submit" name="submit" id="submit"  value="Update Profile" class="submit-style">
                 </section>
             </form>

@@ -36,8 +36,8 @@
                     <div class="registration-text">
                         <input type="text" id="username" name="username" placeholder="Username" class="registration-text-style" required>
                         <input type="email" id="user-mail" name="email" placeholder="Email" class="registration-text-style" required>
-                        <input type="password" id="password" name="password" placeholder="Password" class="registration-text-style" required>
-                        <input type="password" id="confirm-password" placeholder="Repeat Password" class="registration-text-style" required>
+                        <input type="password" id="password" name="password" placeholder="Password" class="registration-text-style" minlength="8" required>
+                        <input type="password" id="confirm-password" placeholder="Repeat Password" class="registration-text-style" minlength="8" required>
                     </div>
                     <div class="prev-next-btn">
                         <button class="prev-btn" type="button" name="prev-btn">Prev</button>
