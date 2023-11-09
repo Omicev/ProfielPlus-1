@@ -16,7 +16,7 @@ $user = $stmt->fetch(PDO::FETCH_ASSOC);
 if ($user) {
     session_start();
     $_SESSION['profileUserId'] = $_GET['id'];
-    require 'views/profile.view.php';
+    header('Location: /profile');
 } else {
     echo "leeg";
 }

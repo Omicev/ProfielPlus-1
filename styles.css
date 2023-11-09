@@ -199,7 +199,7 @@ li {
 }
 
 
-/* RESPONSIVENESS NAV/DROPMENU & PROFILE PORTFOLIO 990px */
+/* RESPONSIVENESS NAV/DROPMENU & PROFILE PORTFOLIO 1300px */
 body {
     @media (max-width: 1300px) {
         .nav-links {
@@ -227,7 +227,6 @@ body {
             top: 7rem;
             left: 2rem;
             width: unset;
-            /* backdrop-filter: blur(25px); */
         }
     
         .profile-picture {
@@ -337,12 +336,10 @@ body {
     border-radius: 5px;
     border: none;
     box-shadow: 0px 0px 1px 2px #323352;
-    /* box-shadow:  0px 0px 10px 2px #3e3c57; */
 }
 
 .submit-style:active {
-    background-color: #a1748c; /* Change to the color you want when clicked */
-    /* You can also adjust other styles like text color, box-shadow, etc. */
+    background-color: #a1748c; 
 }
 
 .not-a-member > a {

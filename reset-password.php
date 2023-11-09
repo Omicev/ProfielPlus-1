@@ -8,6 +8,17 @@ if (isset($_POST['submit'])) {
     $hashPassword = password_hash($password, PASSWORD_DEFAULT);
     require 'database.php';
 
+    $sqlCheckToken = "SELECT reset_token_expires_at FROM users 
+                      WHERE reset_token_hash = :reset_token_hash";
+    $stmtCheckToken = $conn->prepare($sqlCheckToken);
+    $stmtCheckToken->bindParam(':reset_token_hash', $tokenHash);
+    $stmtCheckToken->execute();
+    $checkToken = $stmtCheckToken->fetch();
+
+    if(strtotime($checkToken['reset_token_expires_at']) <= time()) {
+        die("token has expired");
+    }
+
     // Update the password by finding the hidden token.
     $sql = "UPDATE users
             SET password = :password, 

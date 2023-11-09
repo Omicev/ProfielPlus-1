@@ -85,8 +85,24 @@ document.addEventListener("DOMContentLoaded", () => {
     if (tab1 && tab2 && prevBtn && nextBtn) { 
         // Click on next button.
         nextBtn.addEventListener("click", () => {
-            tab1.style.display = "none";
-            tab2.style.display = "flex";
+            const requiredInputs = tab1.querySelectorAll("input[required]");
+            let allInputsFilled = true;
+            
+            // Loop all values of the required inputs. 
+            requiredInputs.forEach(input => {
+                // If an value is empty, make allInputsFilled false.  
+                if (input.value.trim() === '') {
+                    allInputsFilled = false;
+                }
+            });
+            
+            // If all the required inputs are filled in, then allInputsFilled is true and you will go to tab 2.  
+            if (allInputsFilled) {
+                tab1.style.display = "none";
+                tab2.style.display = "flex";
+            } else {
+                alert("Please fill in all required fields before proceeding to the next page.");
+            }
         });
         
         // Click on prev button.
