@@ -549,3 +549,111 @@ body {
         }
     }
 }
+
+
+/* ------------------------EDIT MY PROFILE------------------------ */
+
+.my-profile-flex {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 5rem;
+}
+
+/* --------------------------------------------------------------- */
+
+.edit-btn {
+    position: absolute;
+    left: 50%; 
+    transform: translateX(-50%) translateY(80%); 
+    background-color: #323352;
+    font-size: 1rem;
+    padding: 1rem;
+    /* width: 100%; */
+
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0px 0px 1px 2px #323352;
+}
+
+/* --------------------------------------------------------------- */
+/* --------------------------------Jordy------------------------------- */
+.containerr{
+    font-family: 'Open Sans', sans-serif;
+    width: 90%;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+}
+
+.info{
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+    height: 300px;
+    width: 500px;
+}
+
+.contactform{
+    font-family: 'Open Sans', sans-serif;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    padding: 2vw 4vw;
+    width: 50%;
+    max-width: 60%;
+    border-radius: 10px;
+
+}
+
+.contactus{
+    font-family: 'Open Sans', sans-serif;
+    color: #555;
+    font-weight: 800;
+    margin-bottom: 20px;
+
+}
+
+.contact-form{
+    font-family: 'Open Sans', sans-serif;
+    border: 0;
+    margin: 10px 0px;
+    padding: 20px;
+    outline: none;
+    background: #f5f5f5;
+    font-size: 16px;
+
+}
+/* --------------------------------Jordy end------------------------------- */
+
+/* ABOUT */
+
+.container-about {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+.header-about {
+    text-shadow: 3px 3px 3px #000000;
+}
+
+.about-content {
+    display: flex;
+    gap: 5rem;
+    align-items: center;
+}
+
+.about-picture {
+    width: 300px;
+    height: 300px;
+    border: 2px solid #323352;
+    border-radius: 50%;
+}
+
+.about-text {
+    text-shadow: 3px 3px 10px #323352;
+}

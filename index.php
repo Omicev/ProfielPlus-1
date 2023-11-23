@@ -18,6 +18,9 @@ $routes = [
     "/my-account-profile" => "controllers/my-account-profile.php",
     "/my-account-admin" => "controllers/my-account-admin.php",
     "/my-account-education" => "controllers/my-account-education.php",
+    "/my-account-hobbies" => "controllers/my-account-hobbies.php",
+    "/my-account-workexp" => "controllers/my-account-workexp.php",
+    "/my-profile" => "controllers/my-profile.php",
 
 ];
 

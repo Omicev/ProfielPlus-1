@@ -13,13 +13,31 @@
     
     <!-- Main -->
     <main>
-        <h1>efsefsfs</h1>
-        <h2>addadwada</h2> 
-        <?php   
-        echo "<ul>";
-            echo "<li> HELLLLLO: ". $users['username'] . "</li><br>";
-        echo "</ul>";
-        ?>
+        <div class="container-about">
+            <h2 class="header-about">About</h2>
+            <section class="about-content">
+                <img src="images/Default_pfp.svg.png" alt="picture of " class="about-picture">
+                <article>
+                    <p class="about-text">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+                    Atque, possimus sint quod fugiat eum voluptates ut consequatur 
+                    expedita tempore aperiam tenetur illum accusamus, dolores modi! 
+                    Perferendis atque voluptates ad sequi.
+                    </p>
+                </article>
+            </section>
+            <section class="about-content">
+                <article>
+                    <p class="about-text">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+                    Atque, possimus sint quod fugiat eum voluptates ut consequatur 
+                    expedita tempore aperiam tenetur illum accusamus, dolores modi! 
+                    Perferendis atque voluptates ad sequi.
+                    </p>
+                </article>
+                <img src="images/Default_pfp.svg.png" alt="picture of " class="about-picture">
+            </section>
+        </div>
     </main>
 
 <!-- Footer -->
