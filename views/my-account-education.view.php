@@ -46,10 +46,10 @@
 
                     </ul>
                 </aside>
-                
                 <section class="data-my-account">     
                     <h1 class="header-text-my-account">My Account</h1>
                     <h4><u>Education</u></h4>
+                    <!-- These are the forms where you can enter information about your education -->
                     <label for="school">Schoolnaam:</label>
                     <input type="text" id="school" placeholder="max. 50 karakters" maxlength="50"  required>
                     <label for="diploma">Diploma:</label>

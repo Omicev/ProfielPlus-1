@@ -51,7 +51,7 @@
                     <h1 class="header-text-my-account">My Account</h1>
                     <h4><u>Work experience</u></h4>
                      <!-- These are the forms that will take the data -->
-
+                     <!-- <form method="post" action="about-data.php"> -->
 
                       <label for="werkgever">Employer:</label>
                       <input type="text" id="werkgever" placeholder="max. 50 characters" maxlength="50" name="employer">
